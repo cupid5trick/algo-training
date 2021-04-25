@@ -48,30 +48,34 @@ void merge_sort(vector<int>& v) {
 
 
 int main() {
-//	FILE* f = freopen("../test.txt", "r", stdin);
-//	if (!f) {
-//		printf("Cannot open file!\n");
-//		return 1;
-//	}
+	FILE* f = freopen("../test.txt", "r", stdin);
+	if (!f) {
+		printf("Cannot open file!\n");
+		return 1;
+	}
 	
     int n;
     scanf("%d\n", &n);
     while (n --) {
         int n;
-        scanf("%d", &n);
-        vector<int> v(n);
-        for (int i = 0; i < n; ++ i) {
-            scanf("%d", &v[i]);
-        }
-        getchar();
-
-        merge_sort(v);
-        for_each(v.begin(), v.end(), [](const int& x) {
-            printf("%d ", x);
-        });
-        printf("\b\n");
+		scanf("%d", &n);
+		vector<int> v(n);
+		for (int i = 0; i < n; ++ i) {
+			scanf("%d", &v[i]);
+		}
+		getchar();
+		for_each(v.begin(), v.end(), [](const int& x) {
+			printf("%d ", x);
+		});
+		printf("\b\n");
+		merge_sort(v);
+		for_each(v.begin(), v.end(), [](const int& x) {
+			printf("%d ", x);
+		});
+		printf("\b\n");
+		puts("=================================");
     }
 	
-//	fclose(f);
+	fclose(f);
 	return 0;
 }

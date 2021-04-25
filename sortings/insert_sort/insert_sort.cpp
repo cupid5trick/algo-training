@@ -21,11 +21,11 @@ void insert_sort(vector<int>& v) {
 
 
 int main() {
-//    FILE* f = freopen("../test.txt", "r", stdin);
-//    if (!f) {
-//        perror("Cannot open file!\n");
-//        return errno;
-//    }
+    FILE* f = freopen("../test.txt", "r", stdin);
+    if (!f) {
+        perror("Cannot open file!\n");
+        return errno;
+    }
     
     int n;
     scanf("%d\n", &n);
@@ -37,14 +37,18 @@ int main() {
 			scanf("%d", &v[i]);
 		}
 		getchar();
-		
+		for_each(v.begin(), v.end(), [](const int& x) {
+			printf("%d ", x);
+		});
+		printf("\b\n");
 		insert_sort(v);
 		for_each(v.begin(), v.end(), [](const int& x) {
 			printf("%d ", x);
 		});
 		printf("\b\n");
+		puts("=================================");
 	}
 
-//	fclose(f);
+	fclose(f);
 	return 0;
 }
