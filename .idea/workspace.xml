@@ -25,7 +25,12 @@
     </select>
   </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
-    <generated />
+    <generated>
+      <config projectName="practice1" targetName="quick_sort" />
+      <config projectName="practice1" targetName="heap_sort" />
+      <config projectName="practice1" targetName="insert_sort" />
+      <config projectName="practice1" targetName="merge_sort" />
+    </generated>
   </component>
   <component name="CMakeSettings">
     <configurations>
@@ -33,40 +38,33 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b22ac814-4646-4d01-9087-c29f22526c9e" name="Default Changelist" comment="Implementation of dynamic programming algorithms.">
-      <change afterPath="$PROJECT_DIR$/graph/01knapsack/01knapsack.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph/01knapsack/01knapsack.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph/01knapsack/test.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph/allpair_shortestpath/floyd.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph/allpair_shortestpath/floyd.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph/allpair_shortestpath/test.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph/fractional_knapsack/fractional knapsack.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph/fractional_knapsack/fractional_knapsack.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph/fractional_knapsack/test.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph/scheduel/sjf.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph/scheduel/sjf.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph/scheduel/test.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph/singlesource_shortestpath/dijistra.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph/singlesource_shortestpath/dijistra.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph/singlesource_shortestpath/test.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph/submit/18130500022-郭雍强-第三次.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph/submit/第一题 - 01knapsack/01knapsack.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph/submit/第一题 - 01knapsack/01knapsack.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph/submit/第一题 - 01knapsack/test.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph/submit/第一题 - fractional_knapsack/fractional knapsack.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph/submit/第一题 - fractional_knapsack/fractional_knapsack.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph/submit/第一题 - fractional_knapsack/test.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph/submit/第三题 - singlesource_shortestpath/dijistra.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph/submit/第三题 - singlesource_shortestpath/dijistra.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph/submit/第三题 - singlesource_shortestpath/test.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph/submit/第二题 - scheduel/sjf.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph/submit/第二题 - scheduel/sjf.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph/submit/第二题 - scheduel/test.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph/submit/第四题 - allpair_shortestpath/floyd.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph/submit/第四题 - allpair_shortestpath/floyd.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph/submit/第四题 - allpair_shortestpath/test.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph/第三次上机.md" afterDir="false" />
+    <list default="true" id="b22ac814-4646-4d01-9087-c29f22526c9e" name="Default Changelist" comment="Dijistra和Floyd图论算法以及01背包、分数背包、调度问题（Shortest Job First, SJF）的算法实现.">
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Default_Changelist_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dp/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graph/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sortings/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/traceback/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/traceback/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/traceback/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/traceback/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/traceback/.idea/practice4.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/traceback/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/traceback/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/traceback/_01_kanpsack/_01_knapsack.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/traceback/_01_kanpsack/test.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/traceback/_8_queen/eight_queen.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/traceback/_8_queen/res.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/traceback/_8_queen/test.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/traceback/搜索回溯算法.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/traceback/第四次上机-18130500022-郭雍强-报告.assets/image-20210528215829814.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/traceback/第四次上机-18130500022-郭雍强-报告.assets/image-20210528215845742.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/traceback/第四次上机-18130500022-郭雍强-报告.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/algorithms_implementations.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/algorithms_implementations.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +73,13 @@
   </component>
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CMakeLists.txt" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -90,8 +95,9 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="add_unversioned_files" value="true" />
     <property name="cf.first.check.clang-format" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../term5courses/compiler/practice_homework/interpreter" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../labs/practice4" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -100,7 +106,92 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.unit_test">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="01knapsack" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="algorithms_implementations" TARGET_NAME="01knapsack" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="algorithms_implementations" RUN_TARGET_NAME="01knapsack">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="_01_kanpsack" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="algorithms_implementations" TARGET_NAME="_01_kanpsack" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="algorithms_implementations" RUN_TARGET_NAME="_01_kanpsack">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="_8_queen" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="algorithms_implementations" TARGET_NAME="_8_queen" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="algorithms_implementations" RUN_TARGET_NAME="_8_queen">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="dijistra" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="algorithms_implementations" TARGET_NAME="dijistra" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="algorithms_implementations" RUN_TARGET_NAME="dijistra">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="floyd" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="algorithms_implementations" TARGET_NAME="floyd" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="algorithms_implementations" RUN_TARGET_NAME="floyd">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="fractional_knapsack" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="algorithms_implementations" TARGET_NAME="fractional_knapsack" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="algorithms_implementations" RUN_TARGET_NAME="fractional_knapsack">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="heap_sort" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="algorithms_implementations" TARGET_NAME="heap_sort" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="algorithms_implementations" RUN_TARGET_NAME="heap_sort">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="insert_sort" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="algorithms_implementations" TARGET_NAME="insert_sort" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="algorithms_implementations" RUN_TARGET_NAME="insert_sort">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="lcs" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="algorithms_implementations" TARGET_NAME="lcs" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="algorithms_implementations" RUN_TARGET_NAME="lcs">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="lcstring" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="algorithms_implementations" TARGET_NAME="lcstring" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="algorithms_implementations" RUN_TARGET_NAME="lcstring">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="max_sum" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="algorithms_implementations" TARGET_NAME="max_sum" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="algorithms_implementations" RUN_TARGET_NAME="max_sum">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="mcp" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="algorithms_implementations" TARGET_NAME="mcp" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="algorithms_implementations" RUN_TARGET_NAME="mcp">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="merge_sort" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="algorithms_implementations" TARGET_NAME="merge_sort" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="algorithms_implementations" RUN_TARGET_NAME="merge_sort">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="multistages_graph" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="algorithms_implementations" TARGET_NAME="multistages_graph" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="algorithms_implementations" RUN_TARGET_NAME="multistages_graph">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="quick_sort" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="algorithms_implementations" TARGET_NAME="quick_sort" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="algorithms_implementations" RUN_TARGET_NAME="quick_sort">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="sjf" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="algorithms_implementations" TARGET_NAME="sjf" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="algorithms_implementations" RUN_TARGET_NAME="sjf">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -127,6 +218,25 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="CMake Application.lcs" />
+      <item itemvalue="CMake Application.lcstring" />
+      <item itemvalue="CMake Application.max_sum" />
+      <item itemvalue="CMake Application.mcp" />
+      <item itemvalue="CMake Application.multistages_graph" />
+      <item itemvalue="CMake Application.01knapsack" />
+      <item itemvalue="CMake Application.dijistra" />
+      <item itemvalue="CMake Application.floyd" />
+      <item itemvalue="CMake Application.fractional_knapsack" />
+      <item itemvalue="CMake Application.sjf" />
+      <item itemvalue="CMake Application.heap_sort" />
+      <item itemvalue="CMake Application.insert_sort" />
+      <item itemvalue="CMake Application.merge_sort" />
+      <item itemvalue="CMake Application.quick_sort" />
+      <item itemvalue="CMake Application._01_kanpsack" />
+      <item itemvalue="CMake Application._8_queen" />
+      <item itemvalue="Python.unit_test" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.unit_test" />
@@ -150,7 +260,12 @@
       <workItem from="1619343846994" duration="1188000" />
       <workItem from="1619520959979" duration="38000" />
       <workItem from="1621728818901" duration="15000" />
-      <workItem from="1621728846292" duration="1338000" />
+      <workItem from="1621728846292" duration="2632000" />
+      <workItem from="1621852980741" duration="1092000" />
+      <workItem from="1622077943740" duration="1413000" />
+      <workItem from="1622210032977" duration="655000" />
+      <workItem from="1622214130722" duration="594000" />
+      <workItem from="1622215223956" duration="1998000" />
     </task>
     <task id="LOCAL-00001" summary="Implementation of insert sort, merge sort, heap sort and quick sort algorithms.">
       <created>1617076558650</created>
@@ -166,7 +281,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619343385200</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Dijistra和Floyd图论算法以及01背包、分数背包、调度问题（Shortest Job First, SJF）的算法实现.">
+      <created>1621735736479</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1621735736479</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,7 +321,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Implementation of insert sort, merge sort, heap sort and quick sort algorithms." />
     <MESSAGE value="Implementation of dynamic programming algorithms." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementation of dynamic programming algorithms." />
+    <MESSAGE value="Dijistra和Floyd图论算法以及01背包、分数背包、调度问题（Shortest Job First, SJF）的算法实现." />
+    <option name="LAST_COMMIT_MESSAGE" value="Dijistra和Floyd图论算法以及01背包、分数背包、调度问题（Shortest Job First, SJF）的算法实现." />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="69" width="1089" height="765" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1617076492742">
@@ -214,10 +337,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="626" y="176" key="EnvironmentVariablesDialog/0.0.1536.834@0.0.1536.834" timestamp="1617007444683" />
-    <state x="548" y="185" key="FileChooserDialogImpl" timestamp="1621728927461">
+    <state x="548" y="185" key="FileChooserDialogImpl" timestamp="1622215244651">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="548" y="185" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1621728927461" />
+    <state x="548" y="185" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1622215244651" />
     <state width="1342" height="199" key="GridCell.Tab.0.bottom" timestamp="1617036612256">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -254,18 +377,18 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="270" y="62" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1619343794984" />
-    <state x="361" y="151" key="Vcs.Push.Dialog.v2" timestamp="1619343398159">
+    <state x="361" y="151" key="Vcs.Push.Dialog.v2" timestamp="1621735746105">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="151" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1619343398159" />
+    <state x="361" y="151" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1621735746105" />
     <state x="168" y="120" width="1200" height="596" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1619343526637">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="168" y="120" width="1200" height="596" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1536.834@0.0.1536.834" timestamp="1619343526637" />
-    <state x="570" y="324" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1617006114143">
+    <state x="570" y="324" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1621735756947">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="570" y="324" key="git4idea.remote.GitConfigureRemotesDialog/0.0.1536.834@0.0.1536.834" timestamp="1617006114143" />
+    <state x="570" y="324" key="git4idea.remote.GitConfigureRemotesDialog/0.0.1536.834@0.0.1536.834" timestamp="1621735756947" />
     <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1617010204456">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
