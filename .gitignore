@@ -43,3 +43,4 @@ cmake-build-debug
 *.pdf
 **/*报告*.md
 **/*报告*.assets/
+**/submit
