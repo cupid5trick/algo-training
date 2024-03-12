@@ -1,0 +1,871 @@
+Index: sortings/heap_sort/heap_sort.cpp
+===================================================================
+--- sortings/heap_sort/heap_sort.cpp	(revision 5f381c608bf9b9cdf411180cd2cad6b8c605a54a)
++++ sortings/heap_sort/heap_sort.cpp	(revision 5f381c608bf9b9cdf411180cd2cad6b8c605a54a)
+@@ -1,71 +0,0 @@
+-#include <iostream>
+-#include <cstdio>
+-#include <vector>
+-#include <iterator>	// for prev
+-#include <algorithm>	// for for_each
+-
+-using namespace std;
+-
+-
+-void _maxify_heap(vector<int>& v, int i, int n) {
+-	int l=2*i+1, r=2*i+2, largest=i;
+-	if (l < n && v[l] > v[i]) {
+-		largest = l;
+-	}
+-	if (r < n && v[r] > v[largest]) {
+-		largest = r;
+-	}
+-	if (i != largest) {
+-		int t = v[i];
+-		v[i] = v[largest];
+-		v[largest] = t;
+-		_maxify_heap(v, largest, n);
+-	}
+-}
+-
+-void build_max_heap(vector<int>& v, const int n) {
+-	for (int i=n/2-1; i>=0; -- i) {
+-		_maxify_heap(v, i, n);
+-	}
+-}
+-
+-void heap_sort(vector<int>& v) {
+-	int n = v.size();
+-	build_max_heap(v, n);
+-	for (int i=n-1; i>=0; -- i) {
+-		int t = v[i];
+-		v[i] = v[0];
+-		v[0] = t;
+-		_maxify_heap(v, 0, -- n);
+-	}
+-}
+-
+-
+-int main() {
+-//	FILE* f = freopen("../test.txt", "r", stdin);
+-//	if (!f) {
+-//		printf("Cannot open file!\n");
+-//		return 1;
+-//	}
+-	
+-	int n;
+-    scanf("%d\n", &n);
+-    while (n --) {
+-        int n;
+-        scanf("%d", &n);
+-        vector<int> v(n);
+-        for (int i = 0; i < n; ++ i) {
+-            scanf("%d", &v[i]);
+-        }
+-        getchar();
+-
+-        heap_sort(v);
+-        for_each(v.begin(), v.end(), [](const int& x) {
+-            printf("%d ", x);
+-        });
+-        printf("\b\n");
+-    }
+-	
+-//	fclose(f);
+-	return 0;
+-}
+Index: sortings/merge_sort/merge_sort.cpp
+===================================================================
+--- sortings/merge_sort/merge_sort.cpp	(revision 5f381c608bf9b9cdf411180cd2cad6b8c605a54a)
++++ sortings/merge_sort/merge_sort.cpp	(revision 5f381c608bf9b9cdf411180cd2cad6b8c605a54a)
+@@ -1,77 +0,0 @@
+-#include <iostream>
+-#include <cstdio>
+-#include <vector>
+-#include <iterator>	// for prev
+-#include <algorithm>	// for for_each
+-
+-using namespace std;
+-
+-
+-void _merge(vector<int>& v, int l, int q, int u) {
+-	int i = l, j = q, k;
+-	int n1 = q-l, n2 = u-q;
+-	vector<int> lv(n1), rv(n2);
+-	// copy
+-	for (k=0; i<q && j < u; ++ k) {
+-		lv[k] = v[i ++];
+-		rv[k] = v[j ++];
+-	}
+-	if (j != u) {
+-		rv[k ++] = v[j ++];
+-	}
+-	
+-	// merge
+-	i = 0;
+-	j = 0;
+-	for (int k = l; k < u; ++ k) {
+-		if ((i < n1 && j < n2 && lv[i] < rv[j]) || j >= n2) {
+-			v[k] = lv[i ++];
+-		}
+-		else {
+-			v[k] = rv[j ++];
+-		}
+-	}
+-}
+-
+-void _merge_sort(vector<int>& v, int l, int u) {
+-	if (l != u-1) {
+-		int q = (l+u)/2;
+-		_merge_sort(v, l, q);
+-		_merge_sort(v, q, u);
+-		_merge(v, l, q, u);
+-	}
+-}
+-
+-void merge_sort(vector<int>& v) {
+-	_merge_sort(v, 0, v.size());
+-}
+-
+-
+-int main() {
+-//	FILE* f = freopen("../test.txt", "r", stdin);
+-//	if (!f) {
+-//		printf("Cannot open file!\n");
+-//		return 1;
+-//	}
+-	
+-    int n;
+-    scanf("%d\n", &n);
+-    while (n --) {
+-        int n;
+-        scanf("%d", &n);
+-        vector<int> v(n);
+-        for (int i = 0; i < n; ++ i) {
+-            scanf("%d", &v[i]);
+-        }
+-        getchar();
+-
+-        merge_sort(v);
+-        for_each(v.begin(), v.end(), [](const int& x) {
+-            printf("%d ", x);
+-        });
+-        printf("\b\n");
+-    }
+-	
+-//	fclose(f);
+-	return 0;
+-}
+Index: sortings/.idea/deployment.xml
+===================================================================
+--- sortings/.idea/deployment.xml	(revision 5f381c608bf9b9cdf411180cd2cad6b8c605a54a)
++++ sortings/.idea/deployment.xml	(revision 5f381c608bf9b9cdf411180cd2cad6b8c605a54a)
+@@ -1,14 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="PublishConfigData">
+-    <serverData>
+-      <paths name="ubuntu@tencent-cvm:22 key">
+-        <serverdata>
+-          <mappings>
+-            <mapping local="$PROJECT_DIR$" web="/" />
+-          </mappings>
+-        </serverdata>
+-      </paths>
+-    </serverData>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/algorithms_implementations.iml
+===================================================================
+--- .idea/algorithms_implementations.iml	(revision 5f381c608bf9b9cdf411180cd2cad6b8c605a54a)
++++ .idea/algorithms_implementations.iml	(revision 5f381c608bf9b9cdf411180cd2cad6b8c605a54a)
+@@ -1,14 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<module type="CPP_MODULE" version="4">
+-  <component name="FacetManager">
+-    <facet type="Python" name="Python facet">
+-      <configuration sdkName="Python 3.6" />
+-    </facet>
+-  </component>
+-  <component name="NewModuleRootManager">
+-    <content url="file://$MODULE_DIR$" />
+-    <orderEntry type="inheritedJdk" />
+-    <orderEntry type="sourceFolder" forTests="false" />
+-    <orderEntry type="library" name="Python 3.6 interpreter library" level="application" />
+-  </component>
+-</module>
+\ No newline at end of file
+Index: sortings/.idea/sortings.iml
+===================================================================
+--- sortings/.idea/sortings.iml	(revision 5f381c608bf9b9cdf411180cd2cad6b8c605a54a)
++++ sortings/.idea/sortings.iml	(revision 5f381c608bf9b9cdf411180cd2cad6b8c605a54a)
+@@ -1,11 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<module type="PYTHON_MODULE" version="4">
+-  <component name="NewModuleRootManager">
+-    <content url="file://$MODULE_DIR$" />
+-    <orderEntry type="inheritedJdk" />
+-    <orderEntry type="sourceFolder" forTests="false" />
+-  </component>
+-  <component name="TestRunnerService">
+-    <option name="PROJECT_TEST_RUNNER" value="pytest" />
+-  </component>
+-</module>
+\ No newline at end of file
+Index: sortings/insert_sort/insert_sort.cpp
+===================================================================
+--- sortings/insert_sort/insert_sort.cpp	(revision 5f381c608bf9b9cdf411180cd2cad6b8c605a54a)
++++ sortings/insert_sort/insert_sort.cpp	(revision 5f381c608bf9b9cdf411180cd2cad6b8c605a54a)
+@@ -1,50 +0,0 @@
+-#include <iostream>
+-#include <cstdio>
+-#include <vector>
+-#include <iterator>	// for prev
+-#include <algorithm>	// for for_each
+-#include <cerrno>       // for errno
+-
+-using namespace std;
+-
+-void insert_sort(vector<int>& v) {
+-	for (auto it = next(v.begin()); it != v.end(); ++ it) {
+-		auto j = prev(it);
+-		int key = *it;
+-		while (j != prev(v.begin()) && *j > key) {
+-			*next(j) = *j;
+-			-- j;
+-		}
+-		*next(j) = key;
+-	}
+-}
+-
+-
+-int main() {
+-//    FILE* f = freopen("../test.txt", "r", stdin);
+-//    if (!f) {
+-//        perror("Cannot open file!\n");
+-//        return errno;
+-//    }
+-    
+-    int n;
+-    scanf("%d\n", &n);
+-	while (n --) {
+-		int n;
+-		scanf("%d", &n);
+-		vector<int> v(n);
+-		for (int i = 0; i < n; ++ i) {
+-			scanf("%d", &v[i]);
+-		}
+-		getchar();
+-		
+-		insert_sort(v);
+-		for_each(v.begin(), v.end(), [](const int& x) {
+-			printf("%d ", x);
+-		});
+-		printf("\b\n");
+-	}
+-
+-//	fclose(f);
+-	return 0;
+-}
+Index: sortings/unit_test.py
+===================================================================
+--- sortings/unit_test.py	(revision 5f381c608bf9b9cdf411180cd2cad6b8c605a54a)
++++ sortings/unit_test.py	(revision 5f381c608bf9b9cdf411180cd2cad6b8c605a54a)
+@@ -1,63 +0,0 @@
+-import os
+-import subprocess
+-import errno
+-from ast import literal_eval
+-
+-programes = [
+-    'insert_sort/insert_sort.exe',
+-    'merge_sort/merge_sort.exe',
+-    'heap_sort/heap_sort.exe',
+-    'quick_sort/quick_sort.exe',
+-]
+-
+-def random_array(length=20):
+-    import random
+-    return ' '.join([str(random.randint(-0x80000000, 0x7fffffff)) for _ in range(length)])
+-
+-def test(prog, times=1000):
+-    p = subprocess.Popen([prog],
+-                         stdin=subprocess.PIPE,
+-                         stdout=subprocess.PIPE,
+-                         stderr=subprocess.PIPE,
+-                         )
+-
+-    arrays = [random_array() for _ in range(times)]
+-    input_str = '%d\n%s' % (len(arrays), '\n'.join(['%d %s' % (len(a.split(' ')), a) for a in arrays]))
+-    # print(input_str)
+-    try:
+-        stdout, stderr = p.communicate(
+-            input_str.encode('utf-8'),
+-            5,
+-        )
+-    except subprocess.TimeoutExpired:
+-        p.kill()
+-        return
+-
+-    lines = stdout.decode('utf-8').strip(' \b\r\n').split('\r\n')
+-    correct = True
+-    if p.returncode != 0:
+-
+-        p.kill()
+-        print(p.returncode, errno.errorcode[p.returncode], stdout.decode('utf-8'))
+-        return
+-
+-    for i, l in enumerate(lines):
+-        if len(l) != 0:
+-            # print('[line %d]: ' % (i+1), l, sep='\n')
+-            l = '[%s]' % l.strip(' \b').replace(' ', ',')
+-            a = '[%s]' % arrays[i].strip(' \b').replace(' ', ',')
+-            l = literal_eval(l)
+-            a = literal_eval(a)
+-            if l != sorted(a):
+-                correct = False
+-                print('[Test Error for input %s]: ' % i, l)
+-                print('Sorted array should be: ', sorted(l))
+-
+-    if correct:
+-        print('Test ok: %s inputs correct' % len(lines))
+-
+-
+-
+-if __name__ == '__main__':
+-    for prog in programes:
+-        test(prog)
+\ No newline at end of file
+Index: sortings/quick_sort/quick_sort.cpp
+===================================================================
+--- sortings/quick_sort/quick_sort.cpp	(revision 5f381c608bf9b9cdf411180cd2cad6b8c605a54a)
++++ sortings/quick_sort/quick_sort.cpp	(revision 5f381c608bf9b9cdf411180cd2cad6b8c605a54a)
+@@ -1,70 +0,0 @@
+-#include <iostream>
+-#include <cstdio>
+-#include <vector>
+-#include <algorithm>	// for for_each
+-
+-using namespace std;
+-
+-
+-int _partition(vector<int>& v, int l, int u) {
+-	int i = -1, j;
+-	int x = v[u-1];
+-	for (j=0; j < u-1; ++ j) {
+-		if (v[j] < x && j != ++ i) {
+-			int t = v[i];
+-			v[i] = v[j];
+-			v[j] = t;
+-		}
+-	}
+-	v[u-1] = v[++ i];
+-	v[i] = x;
+-	
+-	return i;
+-}
+-
+-void _quick_sort(vector<int>& v, int l, int u) {
+-	if (l != u-1) {
+-		int q = _partition(v, l, u);
+-//		printf("q=%d A[q]=%d\n", q, v[q]);
+-		if (q > 0) {
+-			_quick_sort(v, l, q);
+-		}
+-		if (q+1 < u) {
+-			_quick_sort(v, q+1, u);
+-		}
+-	}
+-}
+-
+-void quick_sort(vector<int>& v) {
+-	_quick_sort(v, 0, v.size());
+-}
+-
+-
+-int main() {
+-//	FILE* f = freopen("../test.txt", "r", stdin);
+-//	if (!f) {
+-//		printf("Cannot open file!\n");
+-//		return 1;
+-//	}
+-	
+-	int n;
+-    scanf("%d\n", &n);
+-    while (n --) {
+-        int n;
+-        scanf("%d", &n);
+-        vector<int> v(n);
+-        for (int i = 0; i < n; ++ i) {
+-            scanf("%d", &v[i]);
+-        }
+-        getchar();
+-
+-        quick_sort(v);
+-        for_each(v.begin(), v.end(), [](const int& x) {
+-            printf("%d ", x);
+-        });
+-        printf("\b\n");
+-    }
+-	
+-//	fclose(f);
+-	return 0;
+-}
+Index: sortings/test.txt
+===================================================================
+--- sortings/test.txt	(revision 5f381c608bf9b9cdf411180cd2cad6b8c605a54a)
++++ sortings/test.txt	(revision 5f381c608bf9b9cdf411180cd2cad6b8c605a54a)
+@@ -1,4 +0,0 @@
+-3
+-5 3 2 5 7 6
+-5 3 8 9 6 1
+-5 6 8 7 2 5
+\ No newline at end of file
+Index: sortings/.idea/vcs.xml
+===================================================================
+--- sortings/.idea/vcs.xml	(revision 5f381c608bf9b9cdf411180cd2cad6b8c605a54a)
++++ sortings/.idea/vcs.xml	(revision 5f381c608bf9b9cdf411180cd2cad6b8c605a54a)
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="VcsDirectoryMappings">
+-    <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: sortings/.idea/inspectionProfiles/Project_Default.xml
+===================================================================
+--- sortings/.idea/inspectionProfiles/Project_Default.xml	(revision 5f381c608bf9b9cdf411180cd2cad6b8c605a54a)
++++ sortings/.idea/inspectionProfiles/Project_Default.xml	(revision 5f381c608bf9b9cdf411180cd2cad6b8c605a54a)
+@@ -1,6 +0,0 @@
+-<component name="InspectionProjectProfileManager">
+-  <profile version="1.0">
+-    <option name="myName" value="Project Default" />
+-    <inspection_tool class="PyInterpreterInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+-  </profile>
+-</component>
+\ No newline at end of file
+Index: sortings/.idea/modules.xml
+===================================================================
+--- sortings/.idea/modules.xml	(revision 5f381c608bf9b9cdf411180cd2cad6b8c605a54a)
++++ sortings/.idea/modules.xml	(revision 5f381c608bf9b9cdf411180cd2cad6b8c605a54a)
+@@ -1,8 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectModuleManager">
+-    <modules>
+-      <module fileurl="file://$PROJECT_DIR$/.idea/sortings.iml" filepath="$PROJECT_DIR$/.idea/sortings.iml" />
+-    </modules>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: sortings/.idea/.gitignore
+===================================================================
+--- sortings/.idea/.gitignore	(revision 5f381c608bf9b9cdf411180cd2cad6b8c605a54a)
++++ sortings/.idea/.gitignore	(revision 5f381c608bf9b9cdf411180cd2cad6b8c605a54a)
+@@ -1,8 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+-# Datasource local storage ignored files
+-/dataSources/
+-/dataSources.local.xml
+-# Editor-based HTTP Client requests
+-/httpRequests/
+Index: .idea/modules.xml
+===================================================================
+--- .idea/modules.xml	(revision 5f381c608bf9b9cdf411180cd2cad6b8c605a54a)
++++ .idea/modules.xml	(revision 5f381c608bf9b9cdf411180cd2cad6b8c605a54a)
+@@ -1,8 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectModuleManager">
+-    <modules>
+-      <module fileurl="file://$PROJECT_DIR$/.idea/algorithms_implementations.iml" filepath="$PROJECT_DIR$/.idea/algorithms_implementations.iml" />
+-    </modules>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: sortings/.idea/inspectionProfiles/profiles_settings.xml
+===================================================================
+--- sortings/.idea/inspectionProfiles/profiles_settings.xml	(revision 5f381c608bf9b9cdf411180cd2cad6b8c605a54a)
++++ sortings/.idea/inspectionProfiles/profiles_settings.xml	(revision 5f381c608bf9b9cdf411180cd2cad6b8c605a54a)
+@@ -1,6 +0,0 @@
+-<component name="InspectionProjectProfileManager">
+-  <settings>
+-    <option name="USE_PROJECT_PROFILE" value="false" />
+-    <version value="1.0" />
+-  </settings>
+-</component>
+\ No newline at end of file
+Index: sortings/.idea/misc.xml
+===================================================================
+--- sortings/.idea/misc.xml	(revision 5f381c608bf9b9cdf411180cd2cad6b8c605a54a)
++++ sortings/.idea/misc.xml	(revision 5f381c608bf9b9cdf411180cd2cad6b8c605a54a)
+@@ -1,7 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="JavaScriptSettings">
+-    <option name="languageLevel" value="ES6" />
+-  </component>
+-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.6" project-jdk-type="Python SDK" />
+-</project>
+\ No newline at end of file
+Index: README.md
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- README.md	(date 1617043121751)
++++ README.md	(date 1617043121751)
+@@ -0,0 +1,2 @@
++# cpp-algorithms
++Some common algorithms implemented in cpp, with python test scripts.
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"CMakeRunConfigurationManager\" shouldGenerate=\"true\" shouldDeleteObsolete=\"true\">\r\n    <generated />\r\n  </component>\r\n  <component name=\"CMakeSettings\">\r\n    <configurations>\r\n      <configuration PROFILE_NAME=\"Debug\" CONFIG_NAME=\"Debug\" />\r\n    </configurations>\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"7e15df67-611e-4855-a2d6-d99d5035832f\" name=\"Default Changelist\" comment=\"\">\r\n      <changelist_data name=\"cupid5trick\" email=\"\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/algorithms_implementations.iml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/modules.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/vcs.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/graph/shortest_path/dijistra/dijistra.cpp\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/graph/shortest_path/dijistra/dijistra.exe\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/graph/shortest_path/dijistra/test.txt\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/sortings/.idea/.gitignore\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/sortings/.idea/deployment.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/sortings/.idea/inspectionProfiles/Project_Default.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/sortings/.idea/inspectionProfiles/profiles_settings.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/sortings/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/sortings/.idea/modules.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/sortings/.idea/sortings.iml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/sortings/.idea/vcs.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/sortings/heap_sort/heap_sort.cpp\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/sortings/heap_sort/heap_sort.exe\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/sortings/insert_sort/insert_sort.cpp\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/sortings/insert_sort/insert_sort.exe\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/sortings/merge_sort/merge_sort.cpp\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/sortings/merge_sort/merge_sort.exe\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/sortings/quick_sort/quick_sort.cpp\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/sortings/quick_sort/quick_sort.exe\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/sortings/test.txt\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/sortings/unit_test.py\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ClangdSettings\">\r\n    <option name=\"formatViaClangd\" value=\"false\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1qQGwl44Kg5r7QAj8VUPZ1KSVBo\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"ASKED_ADD_EXTERNAL_FILES\" value=\"true\" />\r\n    <property name=\"ASKED_SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"cf.first.check.clang-format\" value=\"false\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/sortings/insert_sort/insert_sort.exe\" />\r\n    <property name=\"node.js.detected.package.eslint\" value=\"true\" />\r\n    <property name=\"node.js.detected.package.tslint\" value=\"true\" />\r\n    <property name=\"node.js.path.for.package.eslint\" value=\"project\" />\r\n    <property name=\"node.js.path.for.package.tslint\" value=\"project\" />\r\n    <property name=\"node.js.selected.package.eslint\" value=\"(autodetect)\" />\r\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable\" />\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration default=\"true\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" REDIRECT_INPUT=\"false\" PASS_PARENT_ENVS_2=\"true\">\r\n      <method v=\"2\">\r\n        <option name=\"com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"unit_test\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"algorithms_implementations\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$/sortings\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/sortings/unit_test.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Python.unit_test\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"7e15df67-611e-4855-a2d6-d99d5035832f\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1617004640550</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1617004640550</updated>\r\n      <workItem from=\"1617004642123\" duration=\"5423000\" />\r\n      <workItem from=\"1617012100521\" duration=\"8146000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"FILTERS\">\r\n                <map>\r\n                  <entry key=\"branch\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"master\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"\" />\r\n  </component>\r\n  <component name=\"WindowStateProjectService\">\r\n    <state x=\"223\" y=\"73\" width=\"1089\" height=\"715\" key=\"#com.intellij.execution.impl.EditConfigurationsDialog\" timestamp=\"1617008846192\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"834\" />\r\n    </state>\r\n    <state x=\"223\" y=\"73\" width=\"1089\" height=\"715\" key=\"#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.834@0.0.1536.834\" timestamp=\"1617008846192\" />\r\n    <state x=\"626\" y=\"176\" key=\"EnvironmentVariablesDialog\" timestamp=\"1617007444683\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"834\" />\r\n    </state>\r\n    <state x=\"626\" y=\"176\" key=\"EnvironmentVariablesDialog/0.0.1536.834@0.0.1536.834\" timestamp=\"1617007444683\" />\r\n    <state x=\"548\" y=\"185\" key=\"FileChooserDialogImpl\" timestamp=\"1617007372664\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"834\" />\r\n    </state>\r\n    <state x=\"548\" y=\"185\" key=\"FileChooserDialogImpl/0.0.1536.834@0.0.1536.834\" timestamp=\"1617007372664\" />\r\n    <state width=\"1342\" height=\"199\" key=\"GridCell.Tab.0.bottom\" timestamp=\"1617036612256\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"834\" />\r\n    </state>\r\n    <state width=\"1342\" height=\"199\" key=\"GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834\" timestamp=\"1617036612256\" />\r\n    <state width=\"1342\" height=\"199\" key=\"GridCell.Tab.0.center\" timestamp=\"1617036612256\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"834\" />\r\n    </state>\r\n    <state width=\"1342\" height=\"199\" key=\"GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834\" timestamp=\"1617036612256\" />\r\n    <state width=\"1342\" height=\"199\" key=\"GridCell.Tab.0.left\" timestamp=\"1617036612256\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"834\" />\r\n    </state>\r\n    <state width=\"1342\" height=\"199\" key=\"GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834\" timestamp=\"1617036612256\" />\r\n    <state width=\"1342\" height=\"199\" key=\"GridCell.Tab.0.right\" timestamp=\"1617036612256\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"834\" />\r\n    </state>\r\n    <state width=\"1342\" height=\"199\" key=\"GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834\" timestamp=\"1617036612256\" />\r\n    <state width=\"1342\" height=\"247\" key=\"GridCell.Tab.1.bottom\" timestamp=\"1617035814743\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"834\" />\r\n    </state>\r\n    <state width=\"1342\" height=\"247\" key=\"GridCell.Tab.1.bottom/0.0.1536.834@0.0.1536.834\" timestamp=\"1617035814743\" />\r\n    <state width=\"1342\" height=\"247\" key=\"GridCell.Tab.1.center\" timestamp=\"1617035814743\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"834\" />\r\n    </state>\r\n    <state width=\"1342\" height=\"247\" key=\"GridCell.Tab.1.center/0.0.1536.834@0.0.1536.834\" timestamp=\"1617035814743\" />\r\n    <state width=\"1342\" height=\"247\" key=\"GridCell.Tab.1.left\" timestamp=\"1617035814743\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"834\" />\r\n    </state>\r\n    <state width=\"1342\" height=\"247\" key=\"GridCell.Tab.1.left/0.0.1536.834@0.0.1536.834\" timestamp=\"1617035814743\" />\r\n    <state width=\"1342\" height=\"247\" key=\"GridCell.Tab.1.right\" timestamp=\"1617035814743\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"834\" />\r\n    </state>\r\n    <state width=\"1342\" height=\"247\" key=\"GridCell.Tab.1.right/0.0.1536.834@0.0.1536.834\" timestamp=\"1617035814743\" />\r\n    <state x=\"270\" y=\"62\" key=\"SettingsEditor\" timestamp=\"1617006176333\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"834\" />\r\n    </state>\r\n    <state x=\"270\" y=\"62\" key=\"SettingsEditor/0.0.1536.834@0.0.1536.834\" timestamp=\"1617006176333\" />\r\n    <state x=\"570\" y=\"324\" key=\"git4idea.remote.GitConfigureRemotesDialog\" timestamp=\"1617006114143\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"834\" />\r\n    </state>\r\n    <state x=\"570\" y=\"324\" key=\"git4idea.remote.GitConfigureRemotesDialog/0.0.1536.834@0.0.1536.834\" timestamp=\"1617006114143\" />\r\n    <state x=\"431\" y=\"155\" width=\"672\" height=\"678\" key=\"search.everywhere.popup\" timestamp=\"1617010204456\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"834\" />\r\n    </state>\r\n    <state x=\"431\" y=\"155\" width=\"672\" height=\"678\" key=\"search.everywhere.popup/0.0.1536.834@0.0.1536.834\" timestamp=\"1617010204456\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision 5f381c608bf9b9cdf411180cd2cad6b8c605a54a)
++++ .idea/workspace.xml	(date 1617043346784)
+@@ -1,41 +1,63 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="BranchesTreeState">
++    <expand>
++      <path>
++        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
++      </path>
++      <path>
++        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
++      </path>
++      <path>
++        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
++      </path>
++    </expand>
++    <select>
++      <path>
++        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="BRANCH:main" type="e8cecc67:BranchNodeDescriptor" />
++      </path>
++    </select>
++  </component>
+   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+     <generated />
+   </component>
+   <component name="CMakeSettings">
+-    <configurations>
+-      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+-    </configurations>
++    <configurations />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="7e15df67-611e-4855-a2d6-d99d5035832f" name="Default Changelist" comment="">
+-      <changelist_data name="cupid5trick" email="" />
+-      <change afterPath="$PROJECT_DIR$/.idea/algorithms_implementations.iml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/graph/shortest_path/dijistra/dijistra.cpp" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/graph/shortest_path/dijistra/dijistra.exe" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/graph/shortest_path/dijistra/test.txt" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/sortings/.idea/.gitignore" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/sortings/.idea/deployment.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/sortings/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/sortings/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/sortings/.idea/misc.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/sortings/.idea/modules.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/sortings/.idea/sortings.iml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/sortings/.idea/vcs.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/sortings/heap_sort/heap_sort.cpp" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/sortings/heap_sort/heap_sort.exe" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/sortings/insert_sort/insert_sort.cpp" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/sortings/insert_sort/insert_sort.exe" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/sortings/merge_sort/merge_sort.cpp" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/sortings/merge_sort/merge_sort.exe" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/sortings/quick_sort/quick_sort.cpp" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/sortings/quick_sort/quick_sort.exe" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/sortings/test.txt" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/sortings/unit_test.py" afterDir="false" />
++    <list default="true" id="b22ac814-4646-4d01-9087-c29f22526c9e" name="Default Changelist" comment="">
++      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/algorithms_implementations.iml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/graph/shortest_path/dijistra/dijistra.exe" beforeDir="false" afterPath="$PROJECT_DIR$/graph/shortest_path/dijistra/dijistra.exe" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/sortings/.idea/.gitignore" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/sortings/.idea/deployment.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/sortings/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/sortings/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/sortings/.idea/misc.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/sortings/.idea/modules.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/sortings/.idea/sortings.iml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/sortings/.idea/vcs.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/sortings/heap_sort/heap_sort.cpp" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/sortings/heap_sort/heap_sort.exe" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/sortings/insert_sort/insert_sort.cpp" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/sortings/insert_sort/insert_sort.exe" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/sortings/merge_sort/merge_sort.cpp" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/sortings/merge_sort/merge_sort.exe" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/sortings/quick_sort/quick_sort.cpp" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/sortings/quick_sort/quick_sort.exe" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/sortings/test.txt" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/sortings/unit_test.py" beforeDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -46,78 +68,25 @@
+     <option name="formatViaClangd" value="false" />
+   </component>
+   <component name="Git.Settings">
++    <option name="RECENT_BRANCH_BY_REPOSITORY">
++      <map>
++        <entry key="$PROJECT_DIR$" value="sort-algorithms" />
++      </map>
++    </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+-  </component>
+-  <component name="ProjectId" id="1qQGwl44Kg5r7QAj8VUPZ1KSVBo" />
+-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+-  <component name="ProjectViewState">
+-    <option name="hideEmptyMiddlePackages" value="true" />
+-    <option name="showLibraryContents" value="true" />
++    <option name="RESET_MODE" value="SOFT" />
+   </component>
+-  <component name="PropertiesComponent">
+-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+-    <property name="WebServerToolWindowFactoryState" value="false" />
+-    <property name="cf.first.check.clang-format" value="false" />
+-    <property name="last_opened_file_path" value="$PROJECT_DIR$/sortings/insert_sort/insert_sort.exe" />
+-    <property name="node.js.detected.package.eslint" value="true" />
+-    <property name="node.js.detected.package.tslint" value="true" />
+-    <property name="node.js.path.for.package.eslint" value="project" />
+-    <property name="node.js.path.for.package.tslint" value="project" />
+-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+-  </component>
+-  <component name="RunManager">
+-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+-      <method v="2">
+-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+-      </method>
+-    </configuration>
+-    <configuration name="unit_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+-      <module name="algorithms_implementations" />
+-      <option name="INTERPRETER_OPTIONS" value="" />
+-      <option name="PARENT_ENVS" value="true" />
+-      <envs>
+-        <env name="PYTHONUNBUFFERED" value="1" />
+-      </envs>
+-      <option name="SDK_HOME" value="" />
+-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/sortings" />
+-      <option name="IS_MODULE_SDK" value="true" />
+-      <option name="ADD_CONTENT_ROOTS" value="true" />
+-      <option name="ADD_SOURCE_ROOTS" value="true" />
+-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sortings/unit_test.py" />
+-      <option name="PARAMETERS" value="" />
+-      <option name="SHOW_COMMAND_LINE" value="false" />
+-      <option name="EMULATE_TERMINAL" value="false" />
+-      <option name="MODULE_MODE" value="false" />
+-      <option name="REDIRECT_INPUT" value="false" />
+-      <option name="INPUT_FILE" value="" />
+-      <method v="2" />
+-    </configuration>
+-    <recent_temporary>
+-      <list>
+-        <item itemvalue="Python.unit_test" />
+-      </list>
+-    </recent_temporary>
++  <component name="GithubPullRequestsUISettings">
++    <option name="hiddenUrls">
++      <set>
++        <option value="https://github.com/cupid5trick/cpp-algorithms" />
++      </set>
++    </option>
+   </component>
+-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
++  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+   <component name="TaskManager">
+-    <task active="true" id="Default" summary="Default task">
+-      <changelist id="7e15df67-611e-4855-a2d6-d99d5035832f" name="Default Changelist" comment="" />
+-      <created>1617004640550</created>
+-      <option name="number" value="Default" />
+-      <option name="presentableId" value="Default" />
+-      <updated>1617004640550</updated>
+-      <workItem from="1617004642123" duration="5423000" />
+-      <workItem from="1617012100521" duration="8146000" />
+-    </task>
+     <servers />
+   </component>
+-  <component name="TypeScriptGeneratedFilesManager">
+-    <option name="version" value="3" />
+-  </component>
+   <component name="Vcs.Log.Tabs.Properties">
+     <option name="TAB_STATES">
+       <map>
+@@ -129,7 +98,7 @@
+                   <entry key="branch">
+                     <value>
+                       <list>
+-                        <option value="master" />
++                        <option value="main" />
+                       </list>
+                     </value>
+                   </entry>
+@@ -140,66 +109,12 @@
+         </entry>
+       </map>
+     </option>
+-  </component>
+-  <component name="VcsManagerConfiguration">
+-    <option name="LAST_COMMIT_MESSAGE" value="" />
++    <option name="oldMeFiltersMigrated" value="true" />
+   </component>
+   <component name="WindowStateProjectService">
+-    <state x="223" y="73" width="1089" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1617008846192">
+-      <screen x="0" y="0" width="1536" height="834" />
+-    </state>
+-    <state x="223" y="73" width="1089" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.834@0.0.1536.834" timestamp="1617008846192" />
+-    <state x="626" y="176" key="EnvironmentVariablesDialog" timestamp="1617007444683">
+-      <screen x="0" y="0" width="1536" height="834" />
+-    </state>
+-    <state x="626" y="176" key="EnvironmentVariablesDialog/0.0.1536.834@0.0.1536.834" timestamp="1617007444683" />
+-    <state x="548" y="185" key="FileChooserDialogImpl" timestamp="1617007372664">
++    <state x="168" y="120" width="1200" height="596" key="com.intellij.history.integration.ui.views.RecentChangeDialog" timestamp="1617043346764">
+       <screen x="0" y="0" width="1536" height="834" />
+     </state>
+-    <state x="548" y="185" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1617007372664" />
+-    <state width="1342" height="199" key="GridCell.Tab.0.bottom" timestamp="1617036612256">
+-      <screen x="0" y="0" width="1536" height="834" />
+-    </state>
+-    <state width="1342" height="199" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1617036612256" />
+-    <state width="1342" height="199" key="GridCell.Tab.0.center" timestamp="1617036612256">
+-      <screen x="0" y="0" width="1536" height="834" />
+-    </state>
+-    <state width="1342" height="199" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1617036612256" />
+-    <state width="1342" height="199" key="GridCell.Tab.0.left" timestamp="1617036612256">
+-      <screen x="0" y="0" width="1536" height="834" />
+-    </state>
+-    <state width="1342" height="199" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1617036612256" />
+-    <state width="1342" height="199" key="GridCell.Tab.0.right" timestamp="1617036612256">
+-      <screen x="0" y="0" width="1536" height="834" />
+-    </state>
+-    <state width="1342" height="199" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1617036612256" />
+-    <state width="1342" height="247" key="GridCell.Tab.1.bottom" timestamp="1617035814743">
+-      <screen x="0" y="0" width="1536" height="834" />
+-    </state>
+-    <state width="1342" height="247" key="GridCell.Tab.1.bottom/0.0.1536.834@0.0.1536.834" timestamp="1617035814743" />
+-    <state width="1342" height="247" key="GridCell.Tab.1.center" timestamp="1617035814743">
+-      <screen x="0" y="0" width="1536" height="834" />
+-    </state>
+-    <state width="1342" height="247" key="GridCell.Tab.1.center/0.0.1536.834@0.0.1536.834" timestamp="1617035814743" />
+-    <state width="1342" height="247" key="GridCell.Tab.1.left" timestamp="1617035814743">
+-      <screen x="0" y="0" width="1536" height="834" />
+-    </state>
+-    <state width="1342" height="247" key="GridCell.Tab.1.left/0.0.1536.834@0.0.1536.834" timestamp="1617035814743" />
+-    <state width="1342" height="247" key="GridCell.Tab.1.right" timestamp="1617035814743">
+-      <screen x="0" y="0" width="1536" height="834" />
+-    </state>
+-    <state width="1342" height="247" key="GridCell.Tab.1.right/0.0.1536.834@0.0.1536.834" timestamp="1617035814743" />
+-    <state x="270" y="62" key="SettingsEditor" timestamp="1617006176333">
+-      <screen x="0" y="0" width="1536" height="834" />
+-    </state>
+-    <state x="270" y="62" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1617006176333" />
+-    <state x="570" y="324" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1617006114143">
+-      <screen x="0" y="0" width="1536" height="834" />
+-    </state>
+-    <state x="570" y="324" key="git4idea.remote.GitConfigureRemotesDialog/0.0.1536.834@0.0.1536.834" timestamp="1617006114143" />
+-    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1617010204456">
+-      <screen x="0" y="0" width="1536" height="834" />
+-    </state>
+-    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1617010204456" />
++    <state x="168" y="120" width="1200" height="596" key="com.intellij.history.integration.ui.views.RecentChangeDialog/0.0.1536.834@0.0.1536.834" timestamp="1617043346764" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: LICENSE
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- LICENSE	(date 1617043121750)
++++ LICENSE	(date 1617043121750)
+@@ -0,0 +1,21 @@
++MIT License
++
++Copyright (c) 2021 cupid5trick
++
++Permission is hereby granted, free of charge, to any person obtaining a copy
++of this software and associated documentation files (the "Software"), to deal
++in the Software without restriction, including without limitation the rights
++to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
++copies of the Software, and to permit persons to whom the Software is
++furnished to do so, subject to the following conditions:
++
++The above copyright notice and this permission notice shall be included in all
++copies or substantial portions of the Software.
++
++THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
++IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
++FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
++AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
++LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
++OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
++SOFTWARE.
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .gitignore	(date 1617043121749)
++++ .gitignore	(date 1617043121749)
+@@ -0,0 +1,35 @@
++# Prerequisites
++*.d
++
++# Compiled Object files
++*.slo
++*.lo
++*.o
++*.obj
++
++# Precompiled Headers
++*.gch
++*.pch
++
++# Compiled Dynamic libraries
++*.so
++*.dylib
++*.dll
++
++# Fortran module files
++*.mod
++*.smod
++
++# Compiled Static libraries
++*.lai
++*.la
++*.a
++*.lib
++
++# Executables
++*.exe
++*.out
++*.app
++
++# Jetbrain
++.idea

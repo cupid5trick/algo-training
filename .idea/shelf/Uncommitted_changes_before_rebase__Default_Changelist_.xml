@@ -1,0 +1,29 @@
+<changelist name="Uncommitted_changes_before_rebase_[Default_Changelist]" date="1617076106107" recycled="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before rebase [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value="sortings/quick_sort/quick_sort.exe" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="sortings/merge_sort/merge_sort.exe" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="graph/shortest_path/dijistra/dijistra.exe" />
+    <option name="AFTER_PATH" value="graph/shortest_path/dijistra/dijistra.exe" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/dijistra.exe" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="sortings/insert_sort/insert_sort.exe" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="sortings/heap_sort/heap_sort.exe" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+</changelist>
