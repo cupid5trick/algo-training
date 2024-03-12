@@ -38,8 +38,3 @@
 *.pdf
 *res.png
 cmake-build-debug
-
-.idea
-*.pdf
-**/*报告*.md
-**/*报告*.assets/
