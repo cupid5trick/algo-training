@@ -36,8 +36,10 @@
 # This project
 *.doc*
 *.pdf
+*.pdb
 *res.png
 cmake-build-debug
+build/
 
 .idea
 *.pdf

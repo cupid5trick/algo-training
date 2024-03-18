@@ -5,10 +5,16 @@ import (
 	. "fmt"
 	"io"
 	"os"
+	"strings"
 )
 
 func main() {
-	run(os.Stdin, os.Stdout)
+	inputText := `3 2
+	1 0 3
+	1 2
+	4 4`
+	in := strings.NewReader(inputText)
+	run(in, os.Stdout)
 }
 
 func run(r io.Reader, w io.Writer) {
@@ -29,7 +35,7 @@ func run(r io.Reader, w io.Writer) {
 			cnt++
 		}
 	}
-
+	
 	for i := 0; i < q; i++ {
 		var low int64
 		var high int64

@@ -1,4 +1,4 @@
-package leetcode.io;
+package io;
 
 import java.io.*;
 import java.util.Scanner;
