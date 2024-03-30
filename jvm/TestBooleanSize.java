@@ -1,6 +1,9 @@
 import java.lang.reflect.Field;
 import sun.misc.Unsafe;
 
+/**
+ * JVM 伪共享学习
+ */
 public class TestBooleanSize {
     public static void main(String[] args)
             throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
