@@ -75,7 +75,7 @@ func coinChange_322(coins []int, amount int) int {
 	return dp[amount]
 }
 
-// 518. 零钱兑换 II - 力扣（LeetCode）: https://leetcode.cn/problems/coin-change-ii
+// 518. 零钱兑换 II - 力扣（LeetCode）: https://leetcode.cn/problems/coin-change-ii/
 // 原本的零钱兑换：每种面值数量无限，求组成 amount 金额需要的最少硬币数量
 // dfs(i,j) = min(dfs(i-1,j), dfs(i-1, j-coins[i])+1), j >= coins[i] (dfs(0,0)=0)
 // 零钱兑换II：求可以凑出总金额的硬币组合方案数
@@ -84,29 +84,24 @@ func coinChange_322(coins []int, amount int) int {
 // 优化：
 // - 和零钱兑换I 一样动态规划数组可以删去 硬币面值维度
 // - 由于 j-k*coins[i] 一样是从小到大计算的，可以像前缀和的思想去优化成一层循环
-// =>> dp[j] += dp[j-coin]
-func change_518_1(amount int, coins []int) int {
-    dp := make([]int, amount+1)
-    dp[0] = 1
-    for _, coin := range coins {
-        for j := coin; j <= amount; j ++ {
-            dp[j] += dp[j-coin]
-        }
-    }
+func change_518_original(amount int, coins []int) int {
+    // dp := make([]int, amount+1)
+    // dp[0] = 1
+    // for _, coin := range coins {
+    //     for j := coin; j <= amount; j ++ {
+    //         dp[j] += dp[j-coin]
+    //     }
+    // }
 
-    return dp[amount]
-}
+    // return dp[amount]
 
-// 直观的递推式实现 O(n^3)
-func change_518_2(amount int, coins []int) int {
-	n := len(coins)
-	dp := make([][]int, n+1)
-    for i := 0; i <= n; i ++ {
+    dp := make([][]int, len(coins)+1)
+    for i := 0; i <= len(coins); i ++ {
         dp[i] = make([]int, amount+1)
     }
     dp[0][0] = 1
     
-    for i:=1; i <= n; i ++ {
+    for i:=1; i <= len(coins); i ++ {
         coin := coins[i-1]
         for j := 0; j <= amount; j ++ {
             dp[i][j] = dp[i-1][j]
@@ -116,5 +111,18 @@ func change_518_2(amount int, coins []int) int {
         }
     }
 
-    return dp[n][amount]
+    return dp[len(coins)][amount]
+}
+
+// 空间优化和前缀和优化版本
+func change_518_optim(amount int, coins []int) int {
+    dp := make([]int, amount+1)
+    dp[0] = 1
+    for _, coin := range coins {
+        for j := coin; j <= amount; j ++ {
+            dp[j] += dp[j-coin]
+        }
+    }
+
+    return dp[amount]
 }

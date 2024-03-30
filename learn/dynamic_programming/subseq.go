@@ -1,6 +1,9 @@
 package main
 
-import "sort"
+import (
+	"math"
+	"sort"
+)
 
 /*
 子序列专题
@@ -46,4 +49,26 @@ func lengthOfLIS_constr(nums []int) int {
 	}
 
 	return len(g)
+}
+
+// 2915. 和为目标值的最长子序列的长度 - 力扣（LeetCode）: https://leetcode.cn/problems/length-of-the-longest-subsequence-that-sums-to-target
+// 03xf 讲题地址，0-1背包 完全背包_哔哩哔哩_bilibili: https://www.bilibili.com/video/BV16Y411v7Y6/?vd_source=23639efd7feab5bca1547c67b23ba88f
+// dp[x] = max(dp[x], dp[x-num]+1)
+func lengthOfLongestSubsequence(nums []int, target int) int {
+    dp := make([]int, target+1)
+    for i:=1; i<= target; i ++ {
+            dp[i] = math.MinInt;
+    }
+
+    for _, num := range nums {
+		// 得研究下这里，为什么倒着遍历可以，正着走就不对???
+        for x:=target; x >= num; x -- {
+            dp[x] = max(dp[x], dp[x-num]+1)
+        }
+    }
+
+    if dp[target] < 0 {
+        return -1
+    }
+    return dp[target]
 }
