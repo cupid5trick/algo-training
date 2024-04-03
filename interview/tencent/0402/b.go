@@ -20,26 +20,36 @@ func maxLevelWidth(root *TreeNode) (ans int) {
 		n := len(q)
 		next := []*TreeNode{}
 		cur := n
-		for node := range q {
+		for _, node := range q {
+			if node == nil {
+				continue
+			}
 			next = append(next, node.Left)
 			next = append(next, node.Right)
 		}
 
 		
-		for i:=0; i < n && q[i] == nil; i ++ {
-			cur --
-		}
-		for i:=n-1; i >= 0 && q[i] == nil; i -- {
+		i, j := 0, n-1
+		for i < j {
+			if q[i] == nil {
+				i ++
+			} else if q[j] == nil {
+				j ++
+			} else {
+				break;
+			}
 			cur --
 		}
 		ans = max(ans, cur)
+		q = next
 	}
 
 	return
 }
 
-func main_b() {
+func main() {
 	// 构造测试二叉树
+	// [1,2,3,4,5,nil,6,8,nil,9,nil,nil,7]
 	root := &TreeNode{
 		Val: 1,
 		Left: &TreeNode{
