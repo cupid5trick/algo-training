@@ -1,8 +1,24 @@
 import java.lang.reflect.Field;
-
+import sun.misc.Unsafe;
 public class TestJavaString {
-    static final String str0 = "HELLO".intern();
-    static final String str = "HELLO";
+    static final String str = "HELLO".intern();
+    // static final String str = "HELLO";
+
+    static final Unsafe unsafe = getUnsafe();
+    static final Unsafe getUnsafe() {
+        {
+            try {
+                Field field = Unsafe.class.getDeclaredField("theUnsafe");
+                field.setAccessible(true);
+                return (Unsafe )field.get(null);
+            } catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            
+        }
+        return null;
+    }
 
 
     public static void main(String[] args) throws Exception {
@@ -23,9 +39,11 @@ public class TestJavaString {
         // 打印修改后的 String
         System.out.println("Modified String: " + str);
         System.out.println(str == tmp);
+        
+        
+        long strOffset = unsafe.staticFieldOffset(TestJavaString.class.getDeclaredField("str"));
+        System.out.println(String.format("0x%16s", Long.toHexString(strOffset)).replace(' ', '0'));
 
-        double f = Math.floor(1.4D);
-        System.out.printf("%.10f\n", f);
+        System.out.printf("page size: %d, address size: %d\n", unsafe.pageSize(), unsafe.addressSize());
     }
-
 }

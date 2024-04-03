@@ -1,0 +1,348 @@
+Classfile jvm/TestJavaString.class
+  Last modified 2024-3-30; size 2334 bytes
+  MD5 checksum 2a753b9a94a35db8599d8b70edcad5b0
+  Compiled from "TestJavaString.java"
+public class TestJavaString
+  minor version: 0
+  major version: 52
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+    #1 = Methodref          #30.#65       // java/lang/Object."<init>":()V
+    #2 = Class              #66           // sun/misc/Unsafe
+    #3 = String             #67           // theUnsafe
+    #4 = Methodref          #68.#69       // java/lang/Class.getDeclaredField:(Ljava/lang/String;)Ljava/lang/reflect/Field;
+    #5 = Methodref          #70.#71       // java/lang/reflect/Field.setAccessible:(Z)V
+    #6 = Methodref          #70.#72       // java/lang/reflect/Field.get:(Ljava/lang/Object;)Ljava/lang/Object;
+    #7 = Class              #73           // java/lang/NoSuchFieldException
+    #8 = Class              #74           // java/lang/SecurityException
+    #9 = Class              #75           // java/lang/IllegalArgumentException
+   #10 = Class              #76           // java/lang/IllegalAccessException
+   #11 = Methodref          #61.#77       // java/lang/Exception.printStackTrace:()V
+   #12 = Fieldref           #26.#78       // TestJavaString.str:Ljava/lang/String;
+   #13 = Fieldref           #79.#80       // java/lang/System.out:Ljava/io/PrintStream;
+   #14 = Class              #81           // java/lang/StringBuilder
+   #15 = Methodref          #14.#65       // java/lang/StringBuilder."<init>":()V
+   #16 = String             #82           // Original String:
+   #17 = Methodref          #14.#83       // java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+   #18 = Methodref          #14.#84       // java/lang/StringBuilder.toString:()Ljava/lang/String;
+   #19 = Methodref          #85.#86       // java/io/PrintStream.println:(Ljava/lang/String;)V
+   #20 = Class              #87           // java/lang/String
+   #21 = String             #88           // value
+   #22 = Class              #89           // "[C"
+   #23 = String             #90           // Modified String:
+   #24 = Methodref          #85.#91       // java/io/PrintStream.println:(Z)V
+   #25 = Fieldref           #26.#92       // TestJavaString.unsafe:Lsun/misc/Unsafe;
+   #26 = Class              #93           // TestJavaString
+   #27 = String             #42           // str
+   #28 = Methodref          #2.#94        // sun/misc/Unsafe.staticFieldOffset:(Ljava/lang/reflect/Field;)J
+   #29 = String             #95           // 0x%16s
+   #30 = Class              #96           // java/lang/Object
+   #31 = Methodref          #97.#98       // java/lang/Long.toHexString:(J)Ljava/lang/String;
+   #32 = Methodref          #20.#99       // java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+   #33 = Methodref          #20.#100      // java/lang/String.replace:(CC)Ljava/lang/String;
+   #34 = String             #101          // page size: %d, address size: %d\n
+   #35 = Methodref          #2.#102       // sun/misc/Unsafe.pageSize:()I
+   #36 = Methodref          #103.#104     // java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+   #37 = Methodref          #2.#105       // sun/misc/Unsafe.addressSize:()I
+   #38 = Methodref          #85.#106      // java/io/PrintStream.printf:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;
+   #39 = String             #107          // HELLO
+   #40 = Methodref          #20.#108      // java/lang/String.intern:()Ljava/lang/String;
+   #41 = Methodref          #26.#109      // TestJavaString.getUnsafe:()Lsun/misc/Unsafe;
+   #42 = Utf8               str
+   #43 = Utf8               Ljava/lang/String;
+   #44 = Utf8               unsafe
+   #45 = Utf8               Lsun/misc/Unsafe;
+   #46 = Utf8               <init>
+   #47 = Utf8               ()V
+   #48 = Utf8               Code
+   #49 = Utf8               LineNumberTable
+   #50 = Utf8               getUnsafe
+   #51 = Utf8               ()Lsun/misc/Unsafe;
+   #52 = Utf8               StackMapTable
+   #53 = Class              #110          // java/lang/Exception
+   #54 = Utf8               main
+   #55 = Utf8               ([Ljava/lang/String;)V
+   #56 = Class              #111          // "[Ljava/lang/String;"
+   #57 = Class              #87           // java/lang/String
+   #58 = Class              #112          // java/lang/reflect/Field
+   #59 = Class              #113          // java/io/PrintStream
+   #60 = Utf8               Exceptions
+   #61 = Class              #110          // java/lang/Exception
+   #62 = Utf8               <clinit>
+   #63 = Utf8               SourceFile
+   #64 = Utf8               TestJavaString.java
+   #65 = NameAndType        #46:#47       // "<init>":()V
+   #66 = Utf8               sun/misc/Unsafe
+   #67 = Utf8               theUnsafe
+   #68 = Class              #114          // java/lang/Class
+   #69 = NameAndType        #115:#116     // getDeclaredField:(Ljava/lang/String;)Ljava/lang/reflect/Field;
+   #70 = Class              #112          // java/lang/reflect/Field
+   #71 = NameAndType        #117:#118     // setAccessible:(Z)V
+   #72 = NameAndType        #119:#120     // get:(Ljava/lang/Object;)Ljava/lang/Object;
+   #73 = Utf8               java/lang/NoSuchFieldException
+   #74 = Utf8               java/lang/SecurityException
+   #75 = Utf8               java/lang/IllegalArgumentException
+   #76 = Utf8               java/lang/IllegalAccessException
+   #77 = NameAndType        #121:#47      // printStackTrace:()V
+   #78 = NameAndType        #42:#43       // str:Ljava/lang/String;
+   #79 = Class              #122          // java/lang/System
+   #80 = NameAndType        #123:#124     // out:Ljava/io/PrintStream;
+   #81 = Utf8               java/lang/StringBuilder
+   #82 = Utf8               Original String:
+   #83 = NameAndType        #125:#126     // append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+   #84 = NameAndType        #127:#128     // toString:()Ljava/lang/String;
+   #85 = Class              #113          // java/io/PrintStream
+   #86 = NameAndType        #129:#130     // println:(Ljava/lang/String;)V
+   #87 = Utf8               java/lang/String
+   #88 = Utf8               value
+   #89 = Utf8               [C
+   #90 = Utf8               Modified String:
+   #91 = NameAndType        #129:#118     // println:(Z)V
+   #92 = NameAndType        #44:#45       // unsafe:Lsun/misc/Unsafe;
+   #93 = Utf8               TestJavaString
+   #94 = NameAndType        #131:#132     // staticFieldOffset:(Ljava/lang/reflect/Field;)J
+   #95 = Utf8               0x%16s
+   #96 = Utf8               java/lang/Object
+   #97 = Class              #133          // java/lang/Long
+   #98 = NameAndType        #134:#135     // toHexString:(J)Ljava/lang/String;
+   #99 = NameAndType        #136:#137     // format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+  #100 = NameAndType        #138:#139     // replace:(CC)Ljava/lang/String;
+  #101 = Utf8               page size: %d, address size: %d\n
+  #102 = NameAndType        #140:#141     // pageSize:()I
+  #103 = Class              #142          // java/lang/Integer
+  #104 = NameAndType        #143:#144     // valueOf:(I)Ljava/lang/Integer;
+  #105 = NameAndType        #145:#141     // addressSize:()I
+  #106 = NameAndType        #146:#147     // printf:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;
+  #107 = Utf8               HELLO
+  #108 = NameAndType        #148:#128     // intern:()Ljava/lang/String;
+  #109 = NameAndType        #50:#51       // getUnsafe:()Lsun/misc/Unsafe;
+  #110 = Utf8               java/lang/Exception
+  #111 = Utf8               [Ljava/lang/String;
+  #112 = Utf8               java/lang/reflect/Field
+  #113 = Utf8               java/io/PrintStream
+  #114 = Utf8               java/lang/Class
+  #115 = Utf8               getDeclaredField
+  #116 = Utf8               (Ljava/lang/String;)Ljava/lang/reflect/Field;
+  #117 = Utf8               setAccessible
+  #118 = Utf8               (Z)V
+  #119 = Utf8               get
+  #120 = Utf8               (Ljava/lang/Object;)Ljava/lang/Object;
+  #121 = Utf8               printStackTrace
+  #122 = Utf8               java/lang/System
+  #123 = Utf8               out
+  #124 = Utf8               Ljava/io/PrintStream;
+  #125 = Utf8               append
+  #126 = Utf8               (Ljava/lang/String;)Ljava/lang/StringBuilder;
+  #127 = Utf8               toString
+  #128 = Utf8               ()Ljava/lang/String;
+  #129 = Utf8               println
+  #130 = Utf8               (Ljava/lang/String;)V
+  #131 = Utf8               staticFieldOffset
+  #132 = Utf8               (Ljava/lang/reflect/Field;)J
+  #133 = Utf8               java/lang/Long
+  #134 = Utf8               toHexString
+  #135 = Utf8               (J)Ljava/lang/String;
+  #136 = Utf8               format
+  #137 = Utf8               (Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+  #138 = Utf8               replace
+  #139 = Utf8               (CC)Ljava/lang/String;
+  #140 = Utf8               pageSize
+  #141 = Utf8               ()I
+  #142 = Utf8               java/lang/Integer
+  #143 = Utf8               valueOf
+  #144 = Utf8               (I)Ljava/lang/Integer;
+  #145 = Utf8               addressSize
+  #146 = Utf8               printf
+  #147 = Utf8               (Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;
+  #148 = Utf8               intern
+{
+  static final java.lang.String str;
+    descriptor: Ljava/lang/String;
+    flags: ACC_STATIC, ACC_FINAL
+
+  static final sun.misc.Unsafe unsafe;
+    descriptor: Lsun/misc/Unsafe;
+    flags: ACC_STATIC, ACC_FINAL
+
+  public TestJavaString();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 3: 0
+
+  static final sun.misc.Unsafe getUnsafe();
+    descriptor: ()Lsun/misc/Unsafe;
+    flags: ACC_STATIC, ACC_FINAL
+    Code:
+      stack=2, locals=1, args_size=0
+         0: ldc           #2                  // class sun/misc/Unsafe
+         2: ldc           #3                  // String theUnsafe
+         4: invokevirtual #4                  // Method java/lang/Class.getDeclaredField:(Ljava/lang/String;)Ljava/lang/reflect/Field;
+         7: astore_0
+         8: aload_0
+         9: iconst_1
+        10: invokevirtual #5                  // Method java/lang/reflect/Field.setAccessible:(Z)V
+        13: aload_0
+        14: aconst_null
+        15: invokevirtual #6                  // Method java/lang/reflect/Field.get:(Ljava/lang/Object;)Ljava/lang/Object;
+        18: checkcast     #2                  // class sun/misc/Unsafe
+        21: areturn
+        22: astore_0
+        23: aload_0
+        24: invokevirtual #11                 // Method java/lang/Exception.printStackTrace:()V
+        27: aconst_null
+        28: areturn
+      Exception table:
+         from    to  target type
+             0    21    22   Class java/lang/NoSuchFieldException
+             0    21    22   Class java/lang/SecurityException
+             0    21    22   Class java/lang/IllegalArgumentException
+             0    21    22   Class java/lang/IllegalAccessException
+      LineNumberTable:
+        line 11: 0
+        line 12: 8
+        line 13: 13
+        line 14: 22
+        line 16: 23
+        line 20: 27
+      StackMapTable: number_of_entries = 1
+        frame_type = 86 /* same_locals_1_stack_item */
+          stack = [ class java/lang/Exception ]
+
+  public static void main(java.lang.String[]) throws java.lang.Exception;
+    descriptor: ([Ljava/lang/String;)V
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=7, locals=6, args_size=1
+         0: getstatic     #12                 // Field str:Ljava/lang/String;
+         3: astore_1
+         4: getstatic     #13                 // Field java/lang/System.out:Ljava/io/PrintStream;
+         7: new           #14                 // class java/lang/StringBuilder
+        10: dup
+        11: invokespecial #15                 // Method java/lang/StringBuilder."<init>":()V
+        14: ldc           #16                 // String Original String:
+        16: invokevirtual #17                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        19: getstatic     #12                 // Field str:Ljava/lang/String;
+        22: invokevirtual #17                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        25: invokevirtual #18                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+        28: invokevirtual #19                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        31: ldc           #20                 // class java/lang/String
+        33: ldc           #21                 // String value
+        35: invokevirtual #4                  // Method java/lang/Class.getDeclaredField:(Ljava/lang/String;)Ljava/lang/reflect/Field;
+        38: astore_2
+        39: aload_2
+        40: iconst_1
+        41: invokevirtual #5                  // Method java/lang/reflect/Field.setAccessible:(Z)V
+        44: aload_2
+        45: getstatic     #12                 // Field str:Ljava/lang/String;
+        48: invokevirtual #6                  // Method java/lang/reflect/Field.get:(Ljava/lang/Object;)Ljava/lang/Object;
+        51: checkcast     #22                 // class "[C"
+        54: checkcast     #22                 // class "[C"
+        57: astore_3
+        58: aload_3
+        59: iconst_0
+        60: bipush        67
+        62: castore
+        63: getstatic     #13                 // Field java/lang/System.out:Ljava/io/PrintStream;
+        66: new           #14                 // class java/lang/StringBuilder
+        69: dup
+        70: invokespecial #15                 // Method java/lang/StringBuilder."<init>":()V
+        73: ldc           #23                 // String Modified String:
+        75: invokevirtual #17                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        78: getstatic     #12                 // Field str:Ljava/lang/String;
+        81: invokevirtual #17                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        84: invokevirtual #18                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+        87: invokevirtual #19                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        90: getstatic     #13                 // Field java/lang/System.out:Ljava/io/PrintStream;
+        93: getstatic     #12                 // Field str:Ljava/lang/String;
+        96: aload_1
+        97: if_acmpne     104
+       100: iconst_1
+       101: goto          105
+       104: iconst_0
+       105: invokevirtual #24                 // Method java/io/PrintStream.println:(Z)V
+       108: getstatic     #25                 // Field unsafe:Lsun/misc/Unsafe;
+       111: ldc           #26                 // class TestJavaString
+       113: ldc           #27                 // String str
+       115: invokevirtual #4                  // Method java/lang/Class.getDeclaredField:(Ljava/lang/String;)Ljava/lang/reflect/Field;
+       118: invokevirtual #28                 // Method sun/misc/Unsafe.staticFieldOffset:(Ljava/lang/reflect/Field;)J
+       121: lstore        4
+       123: getstatic     #13                 // Field java/lang/System.out:Ljava/io/PrintStream;
+       126: ldc           #29                 // String 0x%16s
+       128: iconst_1
+       129: anewarray     #30                 // class java/lang/Object
+       132: dup
+       133: iconst_0
+       134: lload         4
+       136: invokestatic  #31                 // Method java/lang/Long.toHexString:(J)Ljava/lang/String;
+       139: aastore
+       140: invokestatic  #32                 // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       143: bipush        32
+       145: bipush        48
+       147: invokevirtual #33                 // Method java/lang/String.replace:(CC)Ljava/lang/String;
+       150: invokevirtual #19                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       153: getstatic     #13                 // Field java/lang/System.out:Ljava/io/PrintStream;
+       156: ldc           #34                 // String page size: %d, address size: %d\n
+       158: iconst_2
+       159: anewarray     #30                 // class java/lang/Object
+       162: dup
+       163: iconst_0
+       164: getstatic     #25                 // Field unsafe:Lsun/misc/Unsafe;
+       167: invokevirtual #35                 // Method sun/misc/Unsafe.pageSize:()I
+       170: invokestatic  #36                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+       173: aastore
+       174: dup
+       175: iconst_1
+       176: getstatic     #25                 // Field unsafe:Lsun/misc/Unsafe;
+       179: invokevirtual #37                 // Method sun/misc/Unsafe.addressSize:()I
+       182: invokestatic  #36                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+       185: aastore
+       186: invokevirtual #38                 // Method java/io/PrintStream.printf:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;
+       189: pop
+       190: return
+      LineNumberTable:
+        line 26: 0
+        line 27: 4
+        line 30: 31
+        line 31: 39
+        line 34: 44
+        line 37: 58
+        line 40: 63
+        line 41: 90
+        line 44: 108
+        line 45: 123
+        line 47: 153
+        line 48: 190
+      StackMapTable: number_of_entries = 2
+        frame_type = 255 /* full_frame */
+          offset_delta = 104
+          locals = [ class "[Ljava/lang/String;", class java/lang/String, class java/lang/reflect/Field, class "[C" ]
+          stack = [ class java/io/PrintStream ]
+        frame_type = 255 /* full_frame */
+          offset_delta = 0
+          locals = [ class "[Ljava/lang/String;", class java/lang/String, class java/lang/reflect/Field, class "[C" ]
+          stack = [ class java/io/PrintStream, int ]
+    Exceptions:
+      throws java.lang.Exception
+
+  static {};
+    descriptor: ()V
+    flags: ACC_STATIC
+    Code:
+      stack=1, locals=0, args_size=0
+         0: ldc           #39                 // String HELLO
+         2: invokevirtual #40                 // Method java/lang/String.intern:()Ljava/lang/String;
+         5: putstatic     #12                 // Field str:Ljava/lang/String;
+         8: invokestatic  #41                 // Method getUnsafe:()Lsun/misc/Unsafe;
+        11: putstatic     #25                 // Field unsafe:Lsun/misc/Unsafe;
+        14: return
+      LineNumberTable:
+        line 4: 0
+        line 7: 8
+}
+SourceFile: "TestJavaString.java"
