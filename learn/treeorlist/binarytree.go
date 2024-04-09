@@ -14,33 +14,33 @@ package main
 // 时间复杂度：O(n)，其中 n 为字符串的长度。我们每个字符只遍历一次，同时每个字符对应的操作都是常数时间的。
 // 空间复杂度：O(n)。此为栈所需要使用的空间。
 func isValidSerialization_stack(preorder string) bool {
-    n := len(preorder)
-    stk := []int{1}
-    for i := 0; i < n; {
-        if len(stk) == 0 {
-            return false
-        }
-        if preorder[i] == ',' {
-            i++
-        } else if preorder[i] == '#' {
-            stk[len(stk)-1]--
-            if stk[len(stk)-1] == 0 {
-                stk = stk[:len(stk)-1]
-            }
-            i++
-        } else {
-            // 读一个数字
-            for i < n && preorder[i] != ',' {
-                i++
-            }
-            stk[len(stk)-1]--
-            if stk[len(stk)-1] == 0 {
-                stk = stk[:len(stk)-1]
-            }
-            stk = append(stk, 2)
-        }
-    }
-    return len(stk) == 0
+	n := len(preorder)
+	stk := []int{1}
+	for i := 0; i < n; {
+		if len(stk) == 0 {
+			return false
+		}
+		if preorder[i] == ',' {
+			i++
+		} else if preorder[i] == '#' {
+			stk[len(stk)-1]--
+			if stk[len(stk)-1] == 0 {
+				stk = stk[:len(stk)-1]
+			}
+			i++
+		} else {
+			// 读一个数字
+			for i < n && preorder[i] != ',' {
+				i++
+			}
+			stk[len(stk)-1]--
+			if stk[len(stk)-1] == 0 {
+				stk = stk[:len(stk)-1]
+			}
+			stk = append(stk, 2)
+		}
+	}
+	return len(stk) == 0
 }
 
 // 方法二：计数
@@ -52,24 +52,43 @@ func isValidSerialization_stack(preorder string) bool {
 // 时间复杂度：O(n)，其中 n 为字符串的长度。我们每个字符只遍历一次，同时每个字符对应的操作都是常数时间的。
 // 空间复杂度：O(1)。
 func isValidSerialization_counter(preorder string) bool {
-    n := len(preorder)
-    slots := 1
-    for i := 0; i < n; {
-        if slots == 0 {
-            return false
-        }
-        if preorder[i] == ',' {
-            i++
-        } else if preorder[i] == '#' {
-            slots--
-            i++
-        } else {
-            // 读一个数字
-            for i < n && preorder[i] != ',' {
-                i++
-            }
-            slots++ // slots = slots - 1 + 2
-        }
-    }
-    return slots == 0
+	n := len(preorder)
+	slots := 1
+	for i := 0; i < n; {
+		if slots == 0 {
+			return false
+		}
+		if preorder[i] == ',' {
+			i++
+		} else if preorder[i] == '#' {
+			slots--
+			i++
+		} else {
+			// 读一个数字
+			for i < n && preorder[i] != ',' {
+				i++
+			}
+			slots++ // slots = slots - 1 + 2
+		}
+	}
+	return slots == 0
+}
+
+
+// TreeNode definition for a binary tree node.
+type TreeNode struct {
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
+
+func getTargetCopy(original *TreeNode, cloned *TreeNode, target *TreeNode) *TreeNode {
+	if original == nil || original == target {
+		return cloned
+	}
+	left := getTargetCopy(original.Left, cloned.Left, target)
+	if left != nil {
+		return left
+	}
+	return getTargetCopy(original.Right, cloned.Right, target)
 }
