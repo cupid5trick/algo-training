@@ -1,9 +1,52 @@
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
-public class SemaphoreSync {
+/**
+ * 实现一个交替输出的线程同步
+ */
+public class PrintSynchronizer {
+    static Lock lk = new ReentrantLock(true);
+    public static volatile int num = 0;
+    public static int limit = 100;
+
+    public static class Task implements Runnable {
+        int n;
+        int i;
+        public Task(int cnt, int idx) {
+            n = cnt;
+            i = idx;
+        }
+
+        @Override
+        public void run() {
+            while (num < limit) {
+                try {
+                    lk.lock();
+                    if (num < limit && num % n == i) {
+                        System.out.println("Thread-" + Thread.currentThread().getName() + String.format(":%d", num ++));
+                    }
+                } catch (Exception e) {
+                    
+                } finally{
+                    lk.unlock();
+                }
+            }
+        }
+        
+    }
 
     public static void main(String[] args) throws InterruptedException {
-        waitNotify();
+        Thread t1 = new Thread(new Task(3, 0), "1");
+        Thread t2 = new Thread(new Task(3, 1), "2");
+        Thread t3 = new Thread(new Task(3, 2), "3");
+
+        t1.start();
+        t2.start();
+        t3.start();
+        t1.join();
+        t2.join();
+        t3.join();
     }
 
     static void print1() {

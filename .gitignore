@@ -46,3 +46,4 @@ build/
 **/*报告*.md
 **/*报告*.assets/
 **/submit
+*.class
