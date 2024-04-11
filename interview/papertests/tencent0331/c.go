@@ -11,6 +11,7 @@ import (
 // 保证输入是非连通图。
 
 // 这是一个路径优化的并查集实现，有机会学学
+// 代码随想录: https://programmercarl.com/%E5%9B%BE%E8%AE%BA%E5%B9%B6%E6%9F%A5%E9%9B%86%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.htm
 func join(fa []int, a, b int) {
 	c := find(fa, a)
 	d := find(fa, b)
@@ -21,8 +22,10 @@ func find(fa []int, a int) int {
 	if fa[a] == a {
 		return a
 	} else {
-		return find(fa, fa[a])
+		// 路径压缩
+		fa[a] = find(fa, fa[a])
 	}
+	return fa[a]
 }
 
 func main_c() {
