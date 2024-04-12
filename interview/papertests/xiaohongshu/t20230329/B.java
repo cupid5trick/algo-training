@@ -26,7 +26,6 @@ public class B {
                 arr[i] = sc.nextInt();
             }
 
-            long startTime = System.nanoTime();
             int ans = solve(arr, -1, x);
 
             System.out.printf("%d, %d, %d, %s\n", ans, n, x, Arrays.toString(arr));
@@ -38,9 +37,6 @@ public class B {
                 ans = -1;
             }
             System.out.println(ans);
-            long endTime = System.nanoTime();
-            long duration = (endTime - startTime) / 1000000; // 转换为毫秒
-            System.out.printf("Execution time: %d ms\n", duration);
         }
 
         public static int solve(int[] arr, int idx, int target) {
