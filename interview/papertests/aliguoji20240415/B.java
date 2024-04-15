@@ -41,17 +41,18 @@ public class B {
 
     public static long solver(long[][] lamb, int ex, int st) {
         int n = lamb.length;
-        long[][] tmp = Arrays.copyOf(lamb, n);
-        tmp[ex][st] = -1;
+        long tmp = lamb[ex][st];
+        lamb[ex][st] = 0;
 
         long[][] dp = new long[n][2];
-        dp[0][0] = tmp[0][0];
-        dp[0][1] = tmp[0][1];
+        dp[0][0] = lamb[0][0];
+        dp[0][1] = lamb[0][1];
 
         for (int i = 0; i < n; i++) {
-            dp[i][0] += i >= 1 && tmp[i - 1][1] >= 0 ? tmp[i - 1][0] : 0;
-            dp[i][1] += i >= 1 && tmp[i - 1][1] >= 0 ? tmp[i - 1][1] : 0;
+            dp[i][0] += i >= 1 && lamb[i - 1][1] >= 0 ? lamb[i - 1][0] : 0;
+            dp[i][1] += i >= 1 && lamb[i - 1][1] >= 0 ? lamb[i - 1][1] : 0;
         }
+        lamb[ex][st] = tmp;
 
         return Math.max(dp[n - 1][0], dp[n - 1][1]);
     }
