@@ -2,6 +2,13 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "TreeSimilarity",
+      "request": "launch",
+      "mainClass": "TreeSimilarity",
+      "projectName": "algo-training_82867a18"
+    },
+    {
       "name": "Run/Debug go file",
       "type": "go",
       "request": "launch",

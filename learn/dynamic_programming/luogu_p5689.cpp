@@ -55,18 +55,15 @@ int main() {
     scanf("%d%d", &n, &m);
     init(); // cout<<C(2,1)<<endl;
     ll ans = 0, x, y, op;
-    for (int i = 1; i <= m; i++)
-    {
+    for (int i = 1; i <= m; i++) {
         scanf("%lld%lld", &op, &x);
-        if (op == 1)
-        {
+        if (op == 1) {
             scanf("%lld", &y);
             x = (x + ans) % n + 1, y = (y + ans) % n + 1;
             join(x, y);
             // cout<<x<<" "<<y<<" "<<f[get(y)]<<" "<<sz[get(y)]<<endl;
         }
-        else
-        {
+        else {
             x = (x + ans) % n + 1;
             printf("%lld\n", ans = f[get(x)]);
         }
