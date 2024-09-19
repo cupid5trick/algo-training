@@ -92,3 +92,39 @@ func getTargetCopy(original *TreeNode, cloned *TreeNode, target *TreeNode) *Tree
 	}
 	return getTargetCopy(original.Right, cloned.Right, target)
 }
+
+/**
+ * 2. 两数相加 - 力扣（LeetCode）: https://leetcode.cn/problems/add-two-numbers/description/
+ * 处理好进位就行了，解决链表问题常用的哨兵节点，能够写出优雅的解法。
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
+    a, b, c := 0, 0, 0
+    pre := &ListNode{-1, nil}
+    ans := pre
+    for l1 != nil && l2 != nil {
+        a, b = l1.Val, l2.Val
+        pre.Next = &ListNode{(a+b+c)%10, nil}
+        c = (a+b+c)/10
+        pre, l1, l2 = pre.Next, l1.Next, l2.Next
+    }
+
+    head := l1
+    if head == nil {
+        head = l2
+    }
+    for head != nil {
+        a = head.Val
+        pre.Next = &ListNode{(a+c)%10, nil}
+        c = (a+c)/10
+        pre, head = pre.Next, head.Next
+    }
+    if c != 0 {
+        pre.Next = &ListNode{c, nil}
+    }
+    return ans.Next
+}

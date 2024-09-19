@@ -3,10 +3,31 @@
   "configurations": [
     {
       "type": "java",
-      "name": "TreeSimilarity",
+      "name": "MinimumTimeToOffice",
       "request": "launch",
-      "mainClass": "TreeSimilarity",
-      "projectName": "algo-training_82867a18"
+      "mainClass": "interview.MinimumTimeToOffice",
+      "projectName": "algo-training_9ca765f8"
+    },
+    {
+      "type": "java",
+      "name": "ChoirStrength",
+      "request": "launch",
+      "mainClass": "interview.ChoirStrength",
+      "projectName": "algo-training_9ca765f8"
+    },
+    {
+      "type": "java",
+      "name": "Three",
+      "request": "launch",
+      "mainClass": "interview.Three",
+      "projectName": "algo-training_9ca765f8"
+    },
+    {
+      "type": "java",
+      "name": "One",
+      "request": "launch",
+      "mainClass": "interview.One",
+      "projectName": "algo-training_9ca765f8"
     },
     {
       "name": "Run/Debug go file",
