@@ -3,6 +3,55 @@
   "configurations": [
     {
       "type": "java",
+      "name": "TreeSimilarity",
+      "request": "launch",
+      "mainClass": "TreeSimilarity",
+      "projectName": "algo-training_9ca765f8"
+    },
+    {
+      "type": "java",
+      "name": "A",
+      "request": "launch",
+      "mainClass": "interview.intern_coding.papertests.aliguoji20240415.A",
+      "projectName": "algo-training_9ca765f8"
+    },
+    {
+      "type": "java",
+      "name": "HashCodeDemo",
+      "request": "launch",
+      "mainClass": "HashCodeDemo",
+      "projectName": "algo-training_9ca765f8"
+    },
+    {
+      "type": "java",
+      "name": "C",
+      "request": "launch",
+      "mainClass": "C",
+      "projectName": "algo-training_9ca765f8"
+    },
+    {
+      "type": "java",
+      "name": "Pdd",
+      "request": "launch",
+      "mainClass": "interview.Pdd",
+      "projectName": "algo-training_9ca765f8"
+    },
+    {
+      "type": "java",
+      "name": "Pdd20240925",
+      "request": "launch",
+      "mainClass": "interview.Pdd20240925",
+      "projectName": "algo-training_9ca765f8"
+    },
+    {
+      "type": "java",
+      "name": "OrderDish",
+      "request": "launch",
+      "mainClass": "interview.OrderDish",
+      "projectName": "algo-training_9ca765f8"
+    },
+    {
+      "type": "java",
       "name": "MinimumTimeToOffice",
       "request": "launch",
       "mainClass": "interview.MinimumTimeToOffice",

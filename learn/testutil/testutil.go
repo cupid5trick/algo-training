@@ -18,6 +18,19 @@ func removeExtraSpace(s string) string {
 	return strings.Join(sp, "\n")
 }
 
+// 测试点验证
+func AssertEqualRsults(t *testing.T, points [][2]string, runFunc IoFunc) {
+	for i, point := range points {
+		input, res := point[0], point[1]
+		
+		mockReader := strings.NewReader(input)
+		mockWriter := &strings.Builder{}
+		runFunc(mockReader, mockWriter)
+		actualOutput := removeExtraSpace(mockWriter.String())
+
+		assert.Equal(t, res, actualOutput, "Wrong Answer %d\tInput:\t%s\nOutput:\t%s\t%s", i, input, res, actualOutput)
+	}
+}
 
 // 无尽对拍模式
 // inputGenerator 生成随机测试数据，runFuncAC 为暴力逻辑或已 AC 逻辑，runFunc 为当前测试的逻辑
