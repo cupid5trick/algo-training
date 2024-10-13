@@ -1,4 +1,4 @@
-package interview.wy20240509;
+package interview.intern_coding.wy20240509;
 
 import java.util.Scanner;
 

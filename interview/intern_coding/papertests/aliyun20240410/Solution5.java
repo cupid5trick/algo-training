@@ -1,5 +1,4 @@
-package interview.papertests.aliyun20240410;
-
+package interview.intern_coding.papertests.aliyun20240410;
 import java.util.*;
 
 public class Solution5 {

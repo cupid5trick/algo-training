@@ -1,4 +1,4 @@
-package interview.xiaomi;
+package interview.intern_coding.xiaomi;
 
 import java.util.ArrayList;
 import java.util.List;

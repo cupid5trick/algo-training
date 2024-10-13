@@ -1,5 +1,4 @@
-package interview.papertests.aliguoji20240415;
-
+package interview.intern_coding.papertests.aliguoji20240415;
 import java.util.Scanner;
 
 /**

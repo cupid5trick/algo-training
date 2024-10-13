@@ -1,4 +1,4 @@
-package interview.papertests.xiaohongshu.t20230329;
+package interview.intern_coding.papertests.xiaohongshu.t20230329;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;

@@ -1,4 +1,4 @@
-package interview.papertests.hwy20240417;
+package interview.intern_coding.papertests.hwy20240417;
 
 import java.io.IOException;
 import java.io.InputStream;

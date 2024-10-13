@@ -3,6 +3,30 @@
   "configurations": [
     {
       "type": "java",
+      "name": "B",
+      "request": "launch",
+      "mainClass": "interview.B",
+      "projectName": "algo-training_92850598"
+    },
+    {
+      "type": "java",
+      "name": "B",
+      "request": "launch",
+      "mainClass": "B",
+      "projectName": "algo-training_92850598"
+    },
+    {
+      "type": "java",
+      "name": "UniqueSequences",
+      "request": "launch",
+      "mainClass": "interview.UniqueSequences",
+      "projectName": "algo-training_92850598",
+      "args": [
+        "<interview/input.txt"
+      ]
+    },
+    {
+      "type": "java",
       "name": "TreeSimilarity",
       "request": "launch",
       "mainClass": "TreeSimilarity",
