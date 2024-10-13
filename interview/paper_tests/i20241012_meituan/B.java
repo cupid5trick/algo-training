@@ -1,4 +1,4 @@
-package interview;
+package interview.paper_tests.i20241012_meituan;
 
 import java.math.BigInteger;
 import java.util.*;
@@ -13,6 +13,10 @@ import java.util.Scanner;
 输出描述：
 
 输出第k个数，不包含前导0；如果不存在第k个数，则输出"N"。
+
+# 总结
+
+在遍历的同时找到分割位置，不要忘记最后一段的分割、以及BigInteger高精度计算的掌握。
  */
 
 public class B {
