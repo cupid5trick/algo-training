@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+// - 946. 验证栈序列 - 力扣（LeetCode）: <https://leetcode.cn/problems/validate-stack-sequences/description/>
+
 func main() {
 	nums := []byte{'a', 'b', 'c', 'd'}
 	output := []byte{'a', 'c', 'b', 'd'}

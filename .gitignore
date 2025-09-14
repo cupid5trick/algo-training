@@ -47,3 +47,4 @@ build/
 **/*报告*.assets/
 **/submit
 *.class
+output/
